@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>hangmanJS</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="content">
+                <div class="head">
+                    <div class="title">Виселица</div>
+                </div>
+                <div class="body">
+                    <canvas id="canvas" class="canvas" width=500 height=500 hidden=true></canvas>
+                    <div id="greeting" class="greeting">
+                        <form action="">
+                            <label for="name">Имя игрока:</label>
+                            <input type="text" id="name" name="name">
+                            <input type="button" id="nextInfo" class="buttonStyle" value="Далее">
+                        </form>
+                    </div>
+
+                    <div class="information" id="information">
+                        <p id="info" class="info"></p>
+                        <button id="nextShowGame">Далее</button>
+                    </div>
+
+                    <div class="show-game" id="show-game">
+                        <form action="">
+                            <label for="getLetter">Буква:</label>
+                            <input type="text" id="getLetter" name="getLetter">
+                            <input type="button" id="checkLetter" value="Отправить">
+                        </form>
+                    </div>
+
+                    <div class="message" id="message"></div>
+
+                    <div class="result" id="result">
+                        <p id="resultText"></p>
+
+                        <button id="replayGame">Новая игра</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script/Controller.js" type="module"></script>
+</body>
+</html>
