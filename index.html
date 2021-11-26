@@ -1,53 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>hangmanJS</title>
+    <script src="https://unpkg.com/idb@5/build/iife/index-min.js"></script>
+    <title>hangman</title>
+    
 </head>
 <body>
     <div class="wrapper">
-        <div class="container">
-            <div class="content">
-                <div class="head">
-                    <div class="title">Виселица</div>
-                </div>
-                <div class="body">
-                    <canvas id="canvas" class="canvas" width=500 height=500 hidden=true></canvas>
-                    <div id="greeting" class="greeting">
-                        <form action="">
-                            <label for="name">Имя игрока:</label>
-                            <input type="text" id="name" name="name">
-                            <input type="button" id="nextInfo" class="buttonStyle" value="Далее">
-                        </form>
-                    </div>
+        <div class="title">
+            <h1>Hangman</h1>
+        </div>
+        <canvas id="canvas" width="600" height="600" hidden="true"></canvas>
+        <div class="login" id="login">
+            <a>Имя игрока:</a>
+            <input type="text" id="name" onkeydown="if (event.keyCode == 13) document.getElementById('start').click()">
+            <button id="start">Начать</button>
+        </div>
+        <div class="game-menu" id="game-menu">
+            <label>Введите букву:</label>
+            <input type="text" id="enter-letter" onkeydown="if (event.keyCode == 13) document.getElementById('btn-enter-letter').click()">
+            <button id="btn-enter-letter">Ввести</button>
+            <button id="restart-game">Начать заново</button>
+            <button id="show-games">Список игр</button><br>
+            <div class="game-menu-down">
+                <label>Введите id для повтора:</label>
+                <input type="text" id="id-select-game" onkeydown="if (event.keyCode == 13) document.getElementById('start-replay').click()">
+                <button id="start-replay">Показать сыгранную игру</button>
+                <div>
+                    <table border="1" id="table" align="center">
 
-                    <div class="information" id="information">
-                        <p id="info" class="info"></p>
-                        <button id="nextShowGame">Далее</button>
-                    </div>
-
-                    <div class="show-game" id="show-game">
-                        <form action="">
-                            <label for="getLetter">Буква:</label>
-                            <input type="text" id="getLetter" name="getLetter">
-                            <input type="button" id="checkLetter" value="Отправить">
-                        </form>
-                    </div>
-
-                    <div class="message" id="message"></div>
-
-                    <div class="result" id="result">
-                        <p id="resultText"></p>
-
-                        <button id="replayGame">Новая игра</button>
-                    </div>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    <script src="script/Controller.js" type="module"></script>
+    <script src="scripts/Controller.js" type="module"></script>
 </body>
 </html>
